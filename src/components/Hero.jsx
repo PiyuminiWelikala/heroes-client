@@ -2,24 +2,32 @@ import React, { Component } from "react";
 
 class Hero extends Component {
   state = {
-    heroId: 189,
-    movies: ["Movie 1", "Movie 2", "Movie 3"],
-    likeCount: 0
+    heroId: this.props.avenger.id,
+    //movies: this.props.avenger.movies,
+    //likeCount: this.props.avenger.likeCount,
   };
   render() {
     return (
       <div className="card" style={{ width: "18rem" }}>
         <img
-          src="https://p1.hiclipart.com/preview/707/869/118/the-a-avengers-logo-png-clipart.jpg"
-          className="card-img-top" alt="No image"
+          src={this.props.avenger.imgUrl}
+          className="card-img-top"
+          alt="No image"
         />
         <div className="card-body">
-          <h5 className="card-title">Avengers Name</h5>
-          <h6>Avenger Birth Name</h6>
+          <h5 className="card-title">{this.props.avenger.name}</h5>
+          <h6>{this.props.avenger.birthname}</h6>
           <ul>{this.showMovies()}</ul>
-          <button className="btn btn-info" onClick={() => {this.likeAvenger(1)}}>
+          <button
+            className="btn btn-info"
+            onClick={() => {
+              this.likeAvenger(1);
+            }}
+          >
             Like{" "}
-    <span className="badge badge-light">{this.state.likeCount}</span>
+            <span className="badge badge-light">
+              {this.props.avenger.likeCount}
+            </span>
           </button>
         </div>
       </div>
@@ -32,12 +40,15 @@ class Hero extends Component {
     return this.state.heroId < 0 ? "Not an avenger" : "Is an avenger";
   }
   showMovies() {
-    if (this.state.movies.length === 0) return <p>No movie available</p>;
-    return this.state.movies.map((movie) => <li key={this.state.movies.indexOf(movie)}>{movie}</li>);
+    if (this.props.avenger.movies.length === 0)
+      return <p>No movie available</p>;
+    return this.props.avenger.movies.map((movie) => (
+      <li key={movie}>{movie}</li>
+    ));
   }
   likeAvenger = (likeCounter) => {
     //console.log("You have liked this Avenger!");
-    this.setState({likeCount : this.state.likeCount + likeCounter});
+    //this.setState({ likeCount: this.props.avenger.likeCount + likeCounter });
   };
 }
 
