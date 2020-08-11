@@ -28,6 +28,9 @@ class Hero extends Component {
             <span className="badge badge-light">
               {this.props.avenger.likeCount}
             </span>
+          </button>{" "}
+          <button className="btn btn-danger" onClick={this.props.onDelete}>
+            Delete
           </button>
         </div>
       </div>

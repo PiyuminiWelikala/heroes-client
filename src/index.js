@@ -12,7 +12,7 @@ ReactDOM.render(
   <BrowserRouter>
     <NavBar />
     <Route exact path="/" component={Home} />
-    <Route exact path="/heroes" component={Heroes} />
+    <Route exact path="/heroes" component={Heroes} />    
     <Route exact path="/heroes/:id" component={HeroDetails} />
   </BrowserRouter>,
   document.getElementById("root")

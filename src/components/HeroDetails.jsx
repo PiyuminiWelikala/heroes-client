@@ -6,7 +6,7 @@ class HeroDetails extends Component {
         return (
             <div>
                 <h1>Hero Details - {this.props.match.params.id} </h1>
-                <button onClick={this.goHome}></button>
+                <button onClick={this.goHome}>Go Home</button>
             </div>
         );
     };
