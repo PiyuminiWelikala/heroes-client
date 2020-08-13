@@ -43,7 +43,11 @@ class Heroes extends Component {
     let newAvengers = this.state.allAvengers.filter(
       (avenger) => avenger.id !== avengertodeleteid
     );
-    await axios.delete(`http://localhost:5000/api/heroes/${avengertodeleteid}`);
+    await axios.delete(`http://localhost:5000/api/heroes/${avengertodeleteid}`,{
+      headers: {
+        "x-jwt-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmMzU4OTQ3ZDIxMjYyMjFkODI2ZGNmMyIsImVtYWlsIjoic2FuZGFydXdAZ21haWwuY29tIiwiaXNBZG1pbiI6dHJ1ZSwiaWF0IjoxNTk3MzQ1NDc4fQ.hN34MCOsMptuMIILXq-cARS4hDmH6_oLPULFOHXxjcQ"
+      }
+    });
     this.setState({ allAvengers: newAvengers });
   }
 
