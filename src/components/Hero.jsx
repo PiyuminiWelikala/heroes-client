@@ -18,12 +18,7 @@ class Hero extends Component {
           <h5 className="card-title">{this.props.avenger.name}</h5>
           <h6>{this.props.avenger.birthname}</h6>
           <ul>{this.showMovies()}</ul>
-          <button
-            className="btn btn-info"
-            onClick={() => {
-              this.likeAvenger(1);
-            }}
-          >
+          <button className="btn btn-info" onClick={this.props.onLike}>
             Like{" "}
             <span className="badge badge-light">
               {this.props.avenger.likeCount}
@@ -49,10 +44,6 @@ class Hero extends Component {
       <li key={movie}>{movie}</li>
     ));
   }
-  likeAvenger = (likeCounter) => {
-    //console.log("You have liked this Avenger!");
-    //this.setState({ likeCount: this.props.avenger.likeCount + likeCounter });
-  };
 }
 
 export default Hero;

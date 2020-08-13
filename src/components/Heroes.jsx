@@ -16,7 +16,7 @@ class Heroes extends Component {
                 key={avenger.id} 
                 avenger={avenger}
                 onDelete={() => this.deleteAvenger(avenger.id)}
-                onLike={() => this.likeAvenger(avenger.id)}
+                onLike={() => this.likeAvenger(avenger)}
               />
             </div>
           ))}
@@ -34,7 +34,7 @@ class Heroes extends Component {
     let allAvengers = [...this.state.allAvengers];
     let index = allAvengers.indexOf(avenger);
     allAvengers[index] = {...avenger };
-    allAvengers(index).likeCount++;
+    allAvengers[index].likeCount++;
     this.setState({allAvengers : allAvengers});
     
   }
